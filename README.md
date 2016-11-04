@@ -25,12 +25,15 @@ _This page will accept form inputs for all pizza options, allowing user to build
 * _It will display the resulting pizza based on the choices._
     * _Example Input: large with red sauce, onions and bacon_
     * _Example Output: "You've ordered a Large with Red Marinara sauce. Toppings: onions bacon"_  
-* _It will display a subtotal cost based on the user's choices_
+* _It will display a pizza cost based on the user's choices_
     * _Example Input: large with red sauce, onions and bacon_
     * _Example Output: "Your total with tax is $24.00"_  
-* _It will display a total cost with tax added_
+* _It will display a total order cost with tax added_
     * _Example Input: large with red sauce, onions and bacon_
     * _Example Output: "Your total with tax is $25.74"_  
+* _It will allow the user to input options for multiple pizzas in their order._
+    * _Example Input: two custom pizzas_
+    * _Example Output: list of choices for an order of two pizzas_  
 
 ## Setup/Installation Requirements
 

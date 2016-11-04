@@ -9,12 +9,13 @@ body {
 
 h1 {
   padding: 60px;
-  color: white;
+  color: red;
   font-style: bolder;
   font-family: "Pizza";
   font-size: 100px;
   text-align: center;
   background-color: black;
+  border-radius: 20px;
 }
 
 h2 , label , li {
@@ -48,4 +49,10 @@ img {
 
 ul {
   background-color: black;
+  border-radius: 10px;
+}
+
+button {
+  background-color: green;
+  color: white;
 }
