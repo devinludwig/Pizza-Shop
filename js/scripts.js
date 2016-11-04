@@ -21,13 +21,17 @@ Pizza.prototype.evaluatePrice = function() {
   } else {
     this.price = this.price + 3;
   };
-  this.price = 1.0725 * (this.price + this.toppings.length + this.specialty.length * 2);
+  this.price = this.price + this.toppings.length + this.specialty.length * 2;
+};
+
+Pizza.prototype.addTax = function() {
+  this.price = 1.0725 * this.price;
 };
 
 $(document).ready(function() {
   $('form').submit(function(event) {
     event.preventDefault();
-    $("#display , ul").empty();
+    $("#display , ul , #price").empty();
     var toppingsArray = [];
     var specialtyArray = [];
     var size = $("#size").val();
@@ -42,15 +46,17 @@ $(document).ready(function() {
     pizza.evaluatePrice();
     console.log(pizza);
     $("#display").append("You've ordered a " + pizza.pizzaSize + " with " + pizza.sauce + " sauce.<br>");
-    if (toppingsArray.length > 0 || specialtyArray.length > 0) {
+    if (pizza.toppings.length > 0 || pizza.specialty.length > 0) {
       $("#display").append("Toppings:");
     };
-    for (var index = 0; index < toppingsArray.length; index ++) {
-      $("ul").append("<li>" + toppingsArray[index] + "</li>")
+    for (var index = 0; index < pizza.toppings.length; index ++) {
+      $("ul").append("<li>" + pizza.toppings[index] + "</li>")
     };
-    for (var index = 0; index < specialtyArray.length; index ++) {
-      $("ul").append("<li>" + specialtyArray[index] + "</li>")
+    for (var index = 0; index < pizza.specialty.length; index ++) {
+      $("ul").append("<li>" + pizza.specialty[index] + "</li>")
     };
-    $("#price").text('Your total is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+    $("#price").append('Your subtotal is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + '<br>');
+    pizza.addTax();
+    $("#price").append('Your total with tax is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
   });
 });
