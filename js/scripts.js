@@ -4,7 +4,12 @@ function Pizza(size, sauce, toppings, specialty) {
   this.pizzaSize = size;
   this.sauce = sauce;
   this.price;
-}
+};
+
+function Order() {
+  this.pies = [];
+  this.total = 0;
+};
 
 Pizza.prototype.evaluatePrice = function() {
   if (this.pizzaSize === "Large") {
@@ -29,9 +34,10 @@ Pizza.prototype.addTax = function() {
 };
 
 $(document).ready(function() {
+  var order = new Order();
   $('form').submit(function(event) {
     event.preventDefault();
-    $("#display , ul , #price").empty();
+    $("span").empty();
     var toppingsArray = [];
     var specialtyArray = [];
     var size = $("#size").val();
@@ -46,22 +52,32 @@ $(document).ready(function() {
     pizza.evaluatePrice();
     console.log(pizza);
     $(".row").hide();
-    $("#display").append("You've ordered a " + pizza.pizzaSize + " with " + pizza.sauce + " sauce.<br>");
+    $("#display").append("<div class='col-md-8'><h2>*  You've ordered a " + pizza.pizzaSize + " with " + pizza.sauce + " sauce.<br>This pie will cost " + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + ".</h2></div>").show();
     if (pizza.toppings.length > 0 || pizza.specialty.length > 0) {
-      $("#display").append("Toppings:");
+      $("#display").append("<div class='col-md-4'><h2>Toppings:</h2><ul id=" + order.pies.length + "></ul></div>");
+      for (var index = 0; index < pizza.toppings.length; index ++) {
+        $("#" + order.pies.length).append("<li>" + pizza.toppings[index] + "</li>")
+      };
+      for (var index = 0; index < pizza.specialty.length; index ++) {
+        $("#" + order.pies.length).append("<li>" + pizza.specialty[index] + "</li>")
+      };
     };
-    for (var index = 0; index < pizza.toppings.length; index ++) {
-      $("ul").append("<li>" + pizza.toppings[index] + "</li>")
-    };
-    for (var index = 0; index < pizza.specialty.length; index ++) {
-      $("ul").append("<li>" + pizza.specialty[index] + "</li>")
-    };
-    $("#price").append('Your subtotal is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + '<br>');
     pizza.addTax();
-    $("#price").append('Your total with tax is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+    order.total = order.total + pizza.price;
+    $("#price").show();
+    $("span").append(order.total.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+    order.pies.push(pizza);
+    console.log(order)
     $("img").show();
     $("img").animate({
-       width: '2000px'
-   },"slow");
+       width: '120%'
+    },"slow");
+    $("img").click(function() {
+      $("img").animate({
+         width: '0px'
+      },"slow");
+    $(".row").show();
+    $("img , #price, #display").hide();
+    });
   });
 });

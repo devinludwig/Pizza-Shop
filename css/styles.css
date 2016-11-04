@@ -38,4 +38,14 @@ h2 , label , li {
 img {
   display: none;
   width: 0px;
+  cursor: pointer; cursor: hand;
+}
+
+#price {
+  display: none;
+  text-decoration: underline;
+}
+
+ul {
+  background-color: black;
 }
