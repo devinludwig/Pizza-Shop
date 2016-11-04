@@ -9,48 +9,71 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="jumbotron">Make Your Own Custom Pizza!</h1>
+      <h1>Devin's Pizza Shop</h1>
       <div class="row">
         <form>
           <div class="col-md-6">
             <h2>Choose a Size and Sauce Type:</h2>
             <label for="size">Size:</label>
             <select class="form-control form-group" id="size">
-               <option value="large">Large (18")</option>
-               <option value="medium">Medium (14")</option>
-               <option value="small">Small (10")</option>
+               <option value="Large">Large (18")</option>
+               <option value="Medium">Medium (14")</option>
+               <option value="Small">Small (10")</option>
             </select>
             <label for="sauce">Sauce:</label>
             <select class="form-control form-group" id="sauce">
-               <option value="red">Red Marinara</option>
-               <option value="green">Green Pesto</option>
-               <option value="white">White Garlic Ricotta</option>
+               <option>Red Marinara</option>
+               <option>Green Pesto</option>
+               <option>White Garlic Ricotta</option>
             </select>
           </div>
 
-          <div class="col-md-6">
-            <h2>Choose Your Toppings:</h2>
+          <div class="col-lg-2">
+            <h2>Toppings:</h2>
             <div class="checkbox">
-              <label><input type="checkbox" value="mushrooms"> Mushrooms</label>
+              <label><input type="checkbox" value="mushrooms" name="toppings"> Mushrooms</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" value="tomatoes"> Tomatoes</label>
+              <label><input type="checkbox" value="tomatoes" name="toppings"> Tomatoes</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" value="garlic"> Roasted Garlic</label>
+              <label><input type="checkbox" value="garlic" name="toppings"> Roasted Garlic</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" value="peppers"> Peppers</label>
+              <label><input type="checkbox" value="peppers" name="toppings"> Peppers</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" value="onions"> Onions</label>
+              <label><input type="checkbox" value="onions" name="toppings"> Onions</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" value="olives"> Olives</label>
+              <label><input type="checkbox" value="olives" name="toppings"> Olives</label>
             </div>
           </div>
-          <button type="submit" name="button">See Your Order!</button>
+          <div class="col-lg-4">
+            <h2>Specialty Toppings:</h2>
+            <div class="checkbox">
+              <label><input type="checkbox" value="sardines" name="specialty"> Sardines</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="feta" name="specialty"> Feta Cheese</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="artichoke" name="specialty"> Artichoke Hearts</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="bacon" name="specialty"> Bacon</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="sausage" name="specialty"> Sausage</label>
+            </div>
+          </div>
+          <button class="btn-primary" type="submit" name="button">See Your Order!</button>
         </form>
+      </div>
+      <div>
+        <h2 id="display"></h2>
+        <ul></ul>
+        <h2 id="price"></h2>
       </div>
     </div>
   </body>
