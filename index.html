@@ -10,6 +10,48 @@
   <body>
     <div class="container">
       <h1 class="jumbotron">Make Your Own Custom Pizza!</h1>
+      <div class="row">
+        <form>
+          <div class="col-md-6">
+            <h2>Choose a Size and Sauce Type:</h2>
+            <label for="size">Size:</label>
+            <select class="form-control form-group" id="size">
+               <option value="large">Large (18")</option>
+               <option value="medium">Medium (14")</option>
+               <option value="small">Small (10")</option>
+            </select>
+            <label for="sauce">Sauce:</label>
+            <select class="form-control form-group" id="sauce">
+               <option value="red">Red Marinara</option>
+               <option value="green">Green Pesto</option>
+               <option value="white">White Garlic Ricotta</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <h2>Choose Your Toppings:</h2>
+            <div class="checkbox">
+              <label><input type="checkbox" value="mushrooms"> Mushrooms</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="tomatoes"> Tomatoes</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="garlic"> Roasted Garlic</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="peppers"> Peppers</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="onions"> Onions</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="olives"> Olives</label>
+            </div>
+          </div>
+          <button type="submit" name="button">See Your Order!</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
