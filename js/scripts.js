@@ -49,7 +49,7 @@ $(document).ready(function() {
         specialtyArray.push($(this).val());
     });
     $('input[type=checkbox]').each(function() {
-      this.checked = false; 
+      this.checked = false;
     });
     var pizza = new Pizza(size, sauce, toppingsArray, specialtyArray);
     pizza.evaluatePrice();
@@ -78,7 +78,7 @@ $(document).ready(function() {
     $("img").click(function() {
       $("img").animate({
          width: '0px'
-      },"slow");
+      }, 1000);
     $(".row").show();
     $("img , #price, #display").hide();
     });
