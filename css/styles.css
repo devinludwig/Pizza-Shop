@@ -34,3 +34,8 @@ h2 , label , li {
 .col-lg-4 {
   float: left;
 }
+
+img {
+  display: none;
+  width: 0px;
+}

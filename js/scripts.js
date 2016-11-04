@@ -45,6 +45,7 @@ $(document).ready(function() {
     var pizza = new Pizza(size, sauce, toppingsArray, specialtyArray);
     pizza.evaluatePrice();
     console.log(pizza);
+    $(".row").hide();
     $("#display").append("You've ordered a " + pizza.pizzaSize + " with " + pizza.sauce + " sauce.<br>");
     if (pizza.toppings.length > 0 || pizza.specialty.length > 0) {
       $("#display").append("Toppings:");
@@ -58,5 +59,9 @@ $(document).ready(function() {
     $("#price").append('Your subtotal is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + '<br>');
     pizza.addTax();
     $("#price").append('Your total with tax is ' + pizza.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+    $("img").show();
+    $("img").animate({
+       width: '2000px'
+   },"slow");
   });
 });
